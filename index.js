@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 // CORS Options Configuration
 const corsOptions = {
-  origin: 'https://job-portal-theta-lyart.vercel.app', // Allow requests from the frontend domain
+  origin: '*', // Allow requests from the frontend domain
   credentials: true, // Allow cookies to be sent along with requests
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow the listed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
