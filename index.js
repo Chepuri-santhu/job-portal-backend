@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(CookieParser());
 
 const CorsOptions={
-    origin:'https://job-portal-theta-lyart.vercel.app/',
+    origin:'https://job-portal-theta-lyart.vercel.app',
     credentials:true
 }
 app.use(cors(CorsOptions));
