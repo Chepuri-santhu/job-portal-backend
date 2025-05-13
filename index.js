@@ -17,20 +17,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(CookieParser());
 
-// CORS configuration (only your deployed frontend)
+//  Correct CORS configuration 
 const corsOptions = {
-  origin: "*",
+  origin: "https://job-portal-theta-lyart.vercel.app", // your frontend
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 };
+
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Handle preflight requests
 
 // Routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applyRoute);
+
+// Health check route (optional)
+app.get("/", (req, res) => {
+  res.json({ message: "Backend is running" });
+});
 
 // Start server
 const PORT = process.env.PORT || 3000;
