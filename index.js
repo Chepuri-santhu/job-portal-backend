@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import CookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import connectDB from './utils/db.js';
 import userRoute from './router/user.route.js';
@@ -15,7 +15,7 @@ const app = express();
 // Middleware for parsing JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(CookieParser());
+app.use(cookieParser());
 
 // CORS Options Configuration
 const corsOptions = {
